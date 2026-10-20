@@ -2,7 +2,19 @@
 <odoo>
     <data>
 
-        <template id="ordem_servico_purchase" inherit_id="purchase.report_purchaseorder_document">
+        <!-- priority=20: este template substitui o layout inteiro (xpath em
+             //t[@t-call='web.external_layout']) e monta a propria tabela de
+             totais, SEM o <t t-call="account.document_tax_totals"/>.
+             Sem priority, ele aplicava ANTES do
+             l10n_br_purchase.report_purchaseorder_document_l10n_br_purchase
+             (ambos priority 16, vence o menor xml id) e o xpath da OCA
+               //div[@id='total']/div/table/t[@t-call='account.document_tax_totals']
+             falhava com "cannot be located in parent view" (commit OCA
+             c53f9d547 de 22/09/2026 trocou o alvo de
+             tr[hasclass('border-black')] para t[@t-call='account.document_tax_totals']).
+             Com priority=20 a OCA aplica primeiro, no template base do Odoo
+             (que tem o t-call), e depois este template substitui o layout. -->
+        <template id="ordem_servico_purchase" inherit_id="purchase.report_purchaseorder_document" priority="20">
 
            <xpath expr="//t[@t-call='web.external_layout']" position="replace">
               <t t-call="web.external_layout">
