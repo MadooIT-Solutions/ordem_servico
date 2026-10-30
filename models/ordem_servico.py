@@ -443,6 +443,8 @@ class OsFotos(models.Model):
         [('Caldeiraria', 'Caldeiraria'), ('Equipamentos', 'Equipamentos'), ('Usinagem', 'Usinagem'),
          ('Outros', 'Outros')],
         string='Setor', store=True, copy=True, required=True)
+    certificado = fields.Many2many('ir.attachment', 'fotos_os_rel', 'os_fotos_id', 'ir_attachment_id',
+                                   string='Certificado', store=True, copy=False)
 
 
 class OsInspecoes(models.TransientModel):
@@ -528,14 +530,6 @@ class OsInspecoesLinhas(models.Model):
 
                 })
 
-
-class OsFotos(models.Model):
-    _name = "os.fotos"
-    _description = "Fotos"
-
-    data_criacao = fields.Date(string='Data', store=True, copy=True)
-    certificado = fields.Many2many('ir.attachment', 'fotos_os_rel', 'os_fotos_id', 'ir_attachment_id',
-                                   string='Certificado', store=True, copy=False)
 
 
 class OsNfs(models.Model):
