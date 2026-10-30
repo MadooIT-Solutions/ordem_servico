@@ -290,6 +290,12 @@
                             </field>
                         </page>
 
+                        <page string="Desenhos Técnicos" name="desenhos_tecnicos">
+                            <group string="Desenhos e Arquivos Técnicos">
+                                <field name="desenhos" widget="technical_drawing_viewer"/>
+                            </group>
+                        </page>
+
                         <page string="Fotos" name="Fotos">
                             <field name="fotos" widget="many2many_binary"/>
 
@@ -418,6 +424,7 @@
                                 </field>
                             </group>
                         </page>
+
 
                     </notebook>
 
