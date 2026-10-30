@@ -17,6 +17,8 @@ class OrdemServico(models.Model):
     cliente_id = fields.Many2one('res.partner', string='Cliente', store=True, readonly=True, compute='_compute_cliente')
     desenhos = fields.Many2many('ir.attachment', 'os_desenho_arquivo', 'os_id', 'desenhos_id',
                                 string='Arquivos', store=True, copy=True)
+    fotos = fields.Many2many('ir.attachment', 'os_fotos_arquivo', 'os_id', 'fotos_id',
+                                string='Arquivos', store=True, copy=True)
     data_base = fields.Date(string='Data Base', store=True, copy=True)
     data_entrega = fields.Date(string='Data Entrega', store=True, copy=True)
     data_producao = fields.Date(string='Liberado para Produção', store=True, copy=True)
