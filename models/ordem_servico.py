@@ -425,9 +425,9 @@ class OsPedidosCliente(models.Model):
                               string='Pedido', store=True, copy=True)
 
 
-class OsDesenhos(models.Model):
-    _name = "os.desenhos"
-    _description = "Desenhos"
+class OsFotos(models.Model):
+    _name = "os.fotos"
+    _description = "Fotos"
 
     data_criacao = fields.Date(string='Data', store=True, copy=True)
     documento = fields.Char(string='Documento', store=True, copy=True)

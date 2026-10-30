@@ -290,8 +290,8 @@
                             </field>
                         </page>
 
-                        <page string="Desenhos/Fotos" name="Arquivos">
-                            <field name="desenhos" widget="many2many_binary"/>
+                        <page string="Fotos" name="Fotos">
+                            <field name="fotos" widget="many2many_binary"/>
 
                         </page>
 
